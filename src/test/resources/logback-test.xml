@@ -1,0 +1,32 @@
+<configuration debug="false" scan="false" scanPeriod="5 seconds">
+
+	<!-- ############################################ -->
+	<!-- ## Properties ## -->
+	<!-- ############################################ -->
+	<property scope="context" name="pattern" value="%-5level [%d{HH:mm:ss.SSS}] %-25C{0} - %msg%n" />
+	<!-- default -->
+	<!-- <property scope="context" name="pattern" value="%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n" /> -->
+
+	<!-- ############################################ -->
+	<!-- ## Appenders ## -->
+	<!-- ############################################ -->
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<!-- encoders are assigned the type ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+		<encoder>
+			<pattern>${pattern}</pattern>
+		</encoder>
+	</appender>
+
+	<!-- ############################################ -->
+	<!-- ## Root ## -->
+	<!-- ############################################ -->
+	<root level="WARN">
+		<appender-ref ref="STDOUT" />
+	</root>
+
+	<!-- ############################################ -->
+	<!-- ## Loggers ## -->
+	<!-- ############################################ -->
+	<logger name="org.hibernate" level="trace" />
+
+</configuration>
